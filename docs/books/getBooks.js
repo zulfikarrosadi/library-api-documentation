@@ -4,8 +4,6 @@ module.exports = {
     summary: 'Gett list of book',
     description: '',
     operationID: 'getAllBooks',
-    consumes: [],
-    produces: ['application/json'],
     parameters: [],
     requestBody: {},
     responses: {
