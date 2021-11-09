@@ -29,7 +29,7 @@ module.exports.createBook = async (req, res) => {
     const book = await prisma.books.create({
       data: { title, author },
     });
-    return res.status(200).json({
+    return res.status(201).json({
       status: 'OK',
       data: book,
       error: [],
