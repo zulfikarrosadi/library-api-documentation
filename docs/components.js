@@ -1,12 +1,20 @@
 module.exports = {
   components: {
     schemes: {
+      Status: {
+        description: 'Request status, is failed or success',
+      },
+      Id: {
+        description: 'auto generated id',
+      },
       SuccessBookAPIResponse: {
         type: 'object',
         properties: {
           status: {
             type: 'string',
-            description: 'Request status, is failed or success',
+            schema: {
+              $ref: '#components/schemes/Status',
+            },
             example: 'OK',
           },
           data: {
@@ -17,8 +25,10 @@ module.exports = {
               properties: {
                 id: {
                   type: 'integer',
-                  description: 'auto generated id',
                   example: 1,
+                  scheme: {
+                    $ref: '#components/schemes/Id',
+                  },
                 },
                 title: {
                   type: 'string',
@@ -27,7 +37,7 @@ module.exports = {
                 },
                 author: {
                   type: 'string',
-                  description: 'The name of book author',
+                  description: 'A book author',
                   example: 'Jhon Doe',
                 },
               },
@@ -78,6 +88,21 @@ module.exports = {
                 },
               },
             },
+          },
+        },
+      },
+      Book: {
+        type: 'object',
+        properties: {
+          title: {
+            type: 'string',
+            description: 'A book title',
+            example: 'Clean Code',
+          },
+          author: {
+            type: 'string',
+            description: 'A book author',
+            example: 'Jhon Doe',
           },
         },
       },
