@@ -4,22 +4,36 @@ module.exports = {
     summary: 'Add new book to database',
     description: '',
     operationID: 'createBook',
-    consumes: ['application/json'],
-    produces: ['application/json'],
     parameters: [],
     requestBody: {
-      type: 'object',
-      required: ['title', 'author'],
-      properties: {
-        title: {
-          type: 'string',
-          description: 'A book title',
-          example: 'Clean Code',
+      required: true,
+      content: {
+        'application/json': {
+          schema: {
+            $ref: '#components/schemes/Book',
+          },
         },
-        author: {
-          type: 'string',
-          description: 'A book author',
-          example: 'Jhon Doe',
+      },
+    },
+    responses: {
+      201: {
+        description: 'Successfully added new book',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#components/schemes/SuccessBookAPIResponse',
+            },
+          },
+        },
+      },
+      400: {
+        description: 'Failed to add new book',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#components/schemes/FailedBookAPIResponse',
+            },
+          },
         },
       },
     },
