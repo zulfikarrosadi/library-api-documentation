@@ -45,3 +45,26 @@ module.exports.createBook = async (req, res) => {
     });
   }
 };
+
+module.exports.getBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const book = await prisma.books.findUnique({
+      where: { id },
+    });
+    return res.status(200).json({
+      status: 'OK',
+      data: book,
+      error: [],
+    });
+  } catch (errors) {
+    return res.status(404).json({
+      status: 'NOT FOUND',
+      data: [],
+      errors: errors.map((error) => ({
+        code: error.code,
+        message: error.message,
+      })),
+    });
+  }
+};
