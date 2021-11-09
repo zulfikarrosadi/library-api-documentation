@@ -3,7 +3,7 @@ module.exports = {
     tags: ['Book'],
     summary: 'Gett list of book',
     description: '',
-    operationID: 'getAllBooks',
+    operationId: 'getAllBooks',
     parameters: [],
     requestBody: {},
     responses: {

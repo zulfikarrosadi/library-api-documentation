@@ -3,7 +3,7 @@ module.exports = {
     tags: ['Book'],
     summary: 'Add new book to database',
     description: '',
-    operationID: 'createBook',
+    operationId: 'createBook',
     parameters: [],
     requestBody: {
       required: true,
