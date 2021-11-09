@@ -50,11 +50,15 @@ module.exports.getBookById = async (req, res) => {
   try {
     const { id } = req.params;
     const book = await prisma.books.findUnique({
-      where: { id },
+      where: { id: parseInt(id, 10) },
     });
+    const result = [];
+    if (!Array.isArray(book)) {
+      result.push(book);
+    }
     return res.status(200).json({
       status: 'OK',
-      data: book,
+      data: result,
       error: [],
     });
   } catch (errors) {
