@@ -7,7 +7,7 @@ to run this project, run this command in this project directory on your terminal
   npm install
   npm run dev
 ```
-And go to ```http://localhost/api/docs``` to see the documentation
+And go to ```http://localhost:3000/api/docs``` to see the documentation
 but, make sure you have Node.js and MySQL installed
 
 all of API documentation is in ```docs``` directory
