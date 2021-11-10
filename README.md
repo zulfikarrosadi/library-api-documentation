@@ -5,8 +5,10 @@ this project is focused on creating API documentation using swagger
 to run this project, run this command in this project directory on your terminal
 ```
   npm install
+  npm run dev
 ```
-but, make sure you have Node.js installed and MySQL
+And go to ```http://localhost/api/docs``` to see the documentation
+but, make sure you have Node.js and MySQL installed
 
 all of API documentation is in ```docs``` directory
 ```
