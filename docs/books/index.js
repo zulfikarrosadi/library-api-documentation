@@ -1,6 +1,8 @@
 const getAllBooks = require('./getAllBooks');
 const createBook = require('./createBook');
 const getBookById = require('./getBookById');
+const deleteBookById = require('./deleteBookById');
+const updateBookById = require('./updateBookById');
 
 module.exports = {
   paths: {
@@ -10,6 +12,8 @@ module.exports = {
     },
     '/books/{bookId}': {
       ...getBookById,
+      ...deleteBookById,
+      ...updateBookById,
     },
   },
 };
