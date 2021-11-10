@@ -29,9 +29,13 @@ module.exports.createBook = async (req, res) => {
     const book = await prisma.books.create({
       data: { title, author },
     });
+    const result = [];
+    if (!Array.isArray(book)) {
+      result.push(book);
+    }
     return res.status(201).json({
       status: 'OK',
-      data: book,
+      data: result,
       error: [],
     });
   } catch (errors) {
@@ -89,6 +93,7 @@ module.exports.deleteBookById = async (req, res) => {
       error: [],
     });
   } catch (errors) {
+    console.log(errors);
     return res.status(404).json({
       status: 'NOT FOUND',
       data: [],
