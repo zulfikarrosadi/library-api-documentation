@@ -72,3 +72,60 @@ module.exports.getBookById = async (req, res) => {
     });
   }
 };
+
+module.exports.deleteBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const book = await prisma.books.delete({
+      where: { id: parseInt(id, 10) },
+    });
+    const result = [];
+    if (!Array.isArray(book)) {
+      result.push(book);
+    }
+    return res.status(200).json({
+      status: 'DELETED',
+      data: result,
+      error: [],
+    });
+  } catch (errors) {
+    return res.status(404).json({
+      status: 'NOT FOUND',
+      data: [],
+      errors: errors.map((error) => ({
+        code: error.code,
+        message: error.message,
+      })),
+    });
+  }
+};
+
+module.exports.updateBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, author } = req.body;
+    const book = await prisma.books.update({
+      where: { id: parseInt(id, 10) },
+      data: { title, author },
+    });
+    const result = [];
+    if (!Array.isArray(book)) {
+      result.push(book);
+    }
+
+    return res.status(200).json({
+      status: 'UPDATED',
+      data: result,
+      error: [],
+    });
+  } catch (errors) {
+    return res.status(404).json({
+      status: 'NOT FOUND',
+      data: [],
+      errors: errors.map((error) => ({
+        code: error.code,
+        message: error.message,
+      })),
+    });
+  }
+};
