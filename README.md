@@ -24,11 +24,11 @@ docs
  ┣ servers.js
  ┗ tags.js
  ```
- and inside the ```docs``` (outside the ```books```) directory, all basic 
- information about the openAPI version, Libray API version, servers is in there
+and inside the ```docs``` (outside the ```books```) directory, all basic 
+information about the openAPI version, Libray API version, servers is in there
 
- and for ```docs/components.js``` file, all book schemes is defined there
- in ```docs/books``` directory, each of Book endpoints will docuemnted here
+and for ```docs/components.js``` file, all book schemes is defined there.
+in ```docs/books``` directory, each of Book endpoints will docuemnted here
 
 it's not the best documentation at all,
 but as long as I'm still breathing, it will get better :cowboy_hat_face:
